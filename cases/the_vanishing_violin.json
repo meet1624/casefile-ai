@@ -1,0 +1,258 @@
+{
+  "id": "vanishing-violin",
+  "title": "The Vanishing Violin",
+  "setting": "Larkspur Conservatory, during its winter recital.",
+  "victim": "The Larkspur Guarneri, a 1742 violin worth more than the building (stolen)",
+  "briefing": "At the interval, 20:45, a stagehand found the Guarneri's case on its stand, locked and empty. The front doors were bolted at 20:00 for the recital. Three people had backstage access tonight. One of them is a thief. Find out which.",
+  "locations": [
+    "stage",
+    "green room",
+    "instrument store",
+    "loading dock"
+  ],
+  "topics": [
+    "whereabouts",
+    "violin",
+    "money",
+    "others"
+  ],
+  "topic_labels": {
+    "whereabouts": "Where were you during the first half?",
+    "violin": "Tell me about the Guarneri.",
+    "money": "Is the conservatory short of money?",
+    "others": "What do you make of the others?"
+  },
+  "suspects": [
+    {
+      "id": "owen",
+      "name": "Owen Pike",
+      "role": "Stage manager",
+      "personality": "Gruff, practical, and never far from his clipboard.",
+      "background": "Has run the conservatory's stage for eleven years and holds the keys to everything backstage.",
+      "motive": "The conservatory is cutting his job, and a private collector offered him a fortune for the Guarneri.",
+      "secret": "He took the case key from the safe, lifted the violin while the quartet played, and passed it out through the loading dock.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was in the wings running the recital the whole time. I never left my chair.",
+          "truthful": false,
+          "refuted_by": "dock_log"
+        },
+        {
+          "topic": "violin",
+          "text": "I locked the case at a quarter to eight and the key went straight back in the green room safe. It never came out again.",
+          "truthful": false,
+          "refuted_by": "key_register"
+        },
+        {
+          "topic": "money",
+          "text": "The conservatory pays me a stage manager's wage. That is all I earn from it.",
+          "truthful": true
+        },
+        {
+          "topic": "others",
+          "text": "Helena is a perfectionist and Dr. Calder lives in her office. Neither of them would touch that violin.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "dock_log",
+          "text": "Fresh air, that is all. Ask anyone.",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "Fine, I stepped out to the dock for a smoke at twenty past eight. I saw no one and nothing.",
+            "truthful": false,
+            "refuted_by": "courier_card"
+          }
+        },
+        {
+          "evidence_id": "key_register",
+          "text": "Moving a key out of a safe is hardly a crime."
+        },
+        {
+          "evidence_id": "case_latch",
+          "text": "Then whoever did it had a key. That is not news."
+        }
+      ]
+    },
+    {
+      "id": "ines",
+      "name": "Dr. Ines Calder",
+      "role": "Conservatory director",
+      "personality": "Brisk, composed, and allergic to bad news.",
+      "background": "Has led Larkspur for twelve years and answers to a board that watches every penny.",
+      "motive": "The roof is failing and the board will not pay for it.",
+      "secret": "She invited an auction house to value the Guarneri, planning to sell it quietly to save the school.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was in my office with the accounts all evening. I did not see a soul.",
+          "truthful": false,
+          "refuted_by": "visitor_log"
+        },
+        {
+          "topic": "violin",
+          "text": "The Guarneri is the soul of this conservatory. Losing it is a catastrophe.",
+          "truthful": true
+        },
+        {
+          "topic": "money",
+          "text": "The conservatory is in perfectly good health, thank you.",
+          "truthful": false,
+          "refuted_by": "auction_letter"
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "visitor_log",
+          "text": "Oh, that. A business meeting. Nothing to do with the violin.",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "All right. A man from Kestrel Auctions came to value the Guarneri for a sale I had not told the board about. He left at twenty to nine, empty handed. I want that violin sold to save the roof, not stolen.",
+            "truthful": true
+          }
+        },
+        {
+          "evidence_id": "auction_letter",
+          "text": "The roof is failing. That is all it says.",
+          "reveals": {
+            "topic": "money",
+            "text": "We are broke. The roof needs forty thousand pounds we do not have.",
+            "truthful": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "helena",
+      "name": "Helena Marsh",
+      "role": "Concertmaster",
+      "personality": "Intense, exacting, and honest to a fault.",
+      "background": "Leads the conservatory quartet and was due to play the Guarneri in the second half.",
+      "motive": "She is the one person who would miss the violin most.",
+      "secret": "She checked the violin was in its case at a quarter to eight and nothing else.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was on stage with my quartet from eight until twenty to nine. Two hundred people watched me.",
+          "truthful": true
+        },
+        {
+          "topic": "violin",
+          "text": "I was to play the Guarneri after the interval. I checked it was in its case at a quarter to eight and watched Owen lock it.",
+          "truthful": true
+        },
+        {
+          "topic": "money",
+          "text": "Soloists do not get rich. I lease my own violin.",
+          "truthful": true
+        },
+        {
+          "topic": "others",
+          "text": "At about twenty past eight I noticed Owen's chair in the wings was empty. He never leaves it.",
+          "truthful": true
+        }
+      ],
+      "reactions": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "case_latch",
+      "name": "Violin case latch",
+      "location": "stage",
+      "description": "The latch is undamaged and unscratched. The case was opened with a key, not forced."
+    },
+    {
+      "id": "program_card",
+      "name": "Recital programme",
+      "location": "stage",
+      "description": "Helena's quartet plays from 20:00 to 20:40. The Guarneri is listed for the second half only."
+    },
+    {
+      "id": "key_register",
+      "name": "Key register",
+      "location": "green room",
+      "description": "The violin case key was signed out of the green room safe by O. Pike at 19:50 and signed back in at 20:50."
+    },
+    {
+      "id": "visitor_log",
+      "name": "Visitor log",
+      "location": "green room",
+      "description": "Mr. R. Vance of Kestrel Auctions signed in to see Dr. Calder at 20:10 and out at 20:40."
+    },
+    {
+      "id": "auction_letter",
+      "name": "Auction house letter",
+      "location": "instrument store",
+      "description": "Addressed to Dr. Calder: 'We look forward to valuing the Guarneri on Thursday. Please keep this confidential. The roof repair estimate is attached.'"
+    },
+    {
+      "id": "dock_log",
+      "name": "Loading dock clipboard",
+      "location": "loading dock",
+      "description": "Signed by O. Pike: dock door opened at 20:22 and closed at 20:31. Reason given: 'air'."
+    },
+    {
+      "id": "courier_card",
+      "name": "Business card",
+      "location": "loading dock",
+      "description": "Silas Quill, Private Acquisitions. On the back in pencil: 'Thurs. 8.25 pm, dock'. It was found under the door mat."
+    }
+  ],
+  "timeline": [
+    {
+      "time": "19:45",
+      "text": "Helena sees the Guarneri in its case. Owen locks it and puts the key in the safe."
+    },
+    {
+      "time": "19:50",
+      "text": "Owen takes the case key back out of the safe."
+    },
+    {
+      "time": "20:00",
+      "text": "The recital begins. Helena's quartet takes the stage."
+    },
+    {
+      "time": "20:10",
+      "text": "Mr. Vance of Kestrel Auctions meets Dr. Calder in her office."
+    },
+    {
+      "time": "20:22",
+      "text": "Owen opens the loading dock door."
+    },
+    {
+      "time": "20:25",
+      "text": "Owen hands the Guarneri to Silas Quill at the dock."
+    },
+    {
+      "time": "20:31",
+      "text": "Owen closes the dock door and returns to the wings."
+    },
+    {
+      "time": "20:40",
+      "text": "The first half ends. Mr. Vance leaves."
+    },
+    {
+      "time": "20:45",
+      "text": "A stagehand finds the empty case."
+    },
+    {
+      "time": "20:50",
+      "text": "Owen puts the case key back in the safe."
+    }
+  ],
+  "solution": {
+    "culprit": "owen",
+    "motive": "A private collector offered Owen a fortune for the Guarneri, and the conservatory was about to cut his job.",
+    "method": "He took the case key from the safe, lifted the violin while the quartet played, and handed it out through the loading dock.",
+    "key_evidence": [
+      "case_latch",
+      "key_register",
+      "dock_log",
+      "courier_card"
+    ],
+    "explanation": "Owen said he never left his chair and that the case key never left the safe. The key register shows he signed it out at 19:50, the dock clipboard shows he opened the loading dock from 20:22 to 20:31, and a buyer's card was found at the dock. The latch was opened with a key, not forced. Dr. Calder lied about her evening because she was meeting an auction house about selling the violin legitimately, and Helena was on stage in front of two hundred people."
+  }
+}

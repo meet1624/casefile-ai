@@ -1,0 +1,278 @@
+{
+  "id": "midnight-gala",
+  "title": "The Midnight Gala",
+  "setting": "Hale Gallery, a private art gallery, during its 20th anniversary gala.",
+  "victim": "Edmund Hale, founder and owner of Hale Gallery",
+  "briefing": "At 23:05 a waiter found Edmund Hale dead in his upstairs study, struck down with a heavy object. Guests were downstairs all evening. Four people had a reason to be near him tonight. Find out who did it.",
+  "locations": [
+    "study",
+    "ballroom",
+    "cellar",
+    "service corridor"
+  ],
+  "topics": [
+    "whereabouts",
+    "victim",
+    "money",
+    "painting",
+    "vivian"
+  ],
+  "topic_labels": {
+    "whereabouts": "Where were you tonight?",
+    "victim": "What was Edmund Hale to you?",
+    "money": "Tell me about the money.",
+    "painting": "What do you know about the Dutch Landscape?",
+    "vivian": "What do you make of Vivian Cross?"
+  },
+  "suspects": [
+    {
+      "id": "vivian",
+      "name": "Vivian Cross",
+      "role": "Business partner",
+      "personality": "Polished, warm, and always in control of the room.",
+      "background": "Co-founded the gallery with Edmund twenty years ago and runs its finances.",
+      "motive": "Edmund found out she sold the real Dutch Landscape and hid 40,000 from the books.",
+      "secret": "She killed Edmund in his study at about 22:40.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I gave the toast at half past nine and never left the ballroom after that. Ask anyone.",
+          "truthful": false,
+          "refuted_by": "service_door_log"
+        },
+        {
+          "topic": "victim",
+          "text": "Edmund and I built this gallery together. We were like family.",
+          "truthful": true
+        },
+        {
+          "topic": "money",
+          "text": "The books are in perfect order. Edmund never touched the accounts.",
+          "truthful": false,
+          "refuted_by": "ledger_page"
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "service_door_log",
+          "text": "Oh, that. I went up the service stairs to fetch my shawl. A two minute errand, nothing more.",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "Fine, I slipped upstairs once to fetch my shawl and came straight back. I saw nothing.",
+            "truthful": false,
+            "refuted_by": "statuette"
+          }
+        },
+        {
+          "evidence_id": "statuette",
+          "text": "Half the gala wears lavender. You cannot pin this on me."
+        }
+      ]
+    },
+    {
+      "id": "marcus",
+      "name": "Marcus Hale",
+      "role": "Edmund's nephew",
+      "personality": "Charming, nervous, and quick to joke when cornered.",
+      "background": "Works odd jobs, owes money to people he should not.",
+      "motive": "He inherits a large share of the estate and has heavy gambling debts.",
+      "secret": "He went upstairs at 22:00 to beg Edmund for money and they argued.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was at the bar all evening. I never went upstairs.",
+          "truthful": false,
+          "refuted_by": "cufflink"
+        },
+        {
+          "topic": "victim",
+          "text": "My uncle was generous when it suited him.",
+          "truthful": true
+        },
+        {
+          "topic": "money",
+          "text": "Yes, I owe people. The will would help me, but I would never hurt him.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "cufflink",
+          "text": "...All right. That is mine.",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "I went up at ten to ask Uncle for money. We shouted. He was alive and furious when I left at ten past.",
+            "truthful": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "elena",
+      "name": "Elena Voss",
+      "role": "Art curator",
+      "personality": "Precise, quiet, and honest to the point of bluntness.",
+      "background": "Authenticates every major piece the gallery sells.",
+      "motive": "She feared the gallery's reputation, and her own, would be ruined by a forgery scandal.",
+      "secret": "She discovered the Dutch Landscape on display is a fake.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was in the cellar storage room from quarter past ten until five to eleven, examining the Dutch Landscape.",
+          "truthful": true
+        },
+        {
+          "topic": "victim",
+          "text": "Edmund trusted my eye over anyone's.",
+          "truthful": true
+        },
+        {
+          "topic": "painting",
+          "text": "The Dutch Landscape on the wall is a forgery. The real one was sold and replaced. I told Edmund last week.",
+          "truthful": true
+        },
+        {
+          "topic": "vivian",
+          "text": "Vivian always wears that lavender hand cream. You can smell it across a room.",
+          "truthful": true
+        }
+      ],
+      "reactions": []
+    },
+    {
+      "id": "tomas",
+      "name": "Tomas Reyes",
+      "role": "Head of catering",
+      "personality": "Nervous, polite, and desperate not to lose his job.",
+      "background": "Has run the gallery's events for six years.",
+      "motive": "Edmund once threatened to fire him over missing wine.",
+      "secret": "He sneaked a bottle from the cellar at 22:24 and saw Vivian heading up the service stairs.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was in the kitchen running the service line all night.",
+          "truthful": false,
+          "refuted_by": "cellar_sheet"
+        },
+        {
+          "topic": "victim",
+          "text": "Mr. Hale was a fair employer.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "cellar_sheet",
+          "text": "Please do not tell the owners...",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "I slipped down for a bottle of the 98. On my way back, around half past ten, I saw Ms. Cross in the service corridor heading for the stairs.",
+            "truthful": true
+          }
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "watch",
+      "name": "Smashed wristwatch",
+      "location": "study",
+      "description": "Edmund's watch, stopped at 22:41. It was crushed when he fell."
+    },
+    {
+      "id": "statuette",
+      "name": "Bronze falcon statuette",
+      "location": "study",
+      "description": "A heavy statuette that was wiped clean. A faint lavender scent clings to it."
+    },
+    {
+      "id": "ledger_page",
+      "name": "Torn ledger page",
+      "location": "study",
+      "description": "Edmund's handwriting: 'V.C. - Dutch Landscape sale, 40k not in the books. Confront tonight.'"
+    },
+    {
+      "id": "cufflink",
+      "name": "Gold cufflink",
+      "location": "study",
+      "description": "A monogrammed cufflink under the desk, engraved with the letters M.H."
+    },
+    {
+      "id": "program_card",
+      "name": "Gala program card",
+      "location": "ballroom",
+      "description": "Lists Vivian Cross's toast from 21:30 to 21:45 and nothing after."
+    },
+    {
+      "id": "cellar_sheet",
+      "name": "Cellar sign-out sheet",
+      "location": "cellar",
+      "description": "Shows Elena Voss signed in at 22:15, and a bottle of 1998 red signed out at 22:24 by T. Reyes."
+    },
+    {
+      "id": "service_door_log",
+      "name": "Service door keycard log",
+      "location": "service corridor",
+      "description": "Vivian Cross's keycard opened the service stair door at 22:32 going up and at 22:46 going down."
+    }
+  ],
+  "timeline": [
+    {
+      "time": "21:30",
+      "text": "Vivian gives her toast in the ballroom."
+    },
+    {
+      "time": "21:45",
+      "text": "The toast ends. Vivian leaves the stage."
+    },
+    {
+      "time": "22:00",
+      "text": "Marcus goes up to the study and argues with Edmund about money."
+    },
+    {
+      "time": "22:10",
+      "text": "Marcus storms out. Edmund is alive."
+    },
+    {
+      "time": "22:15",
+      "text": "Elena goes down to the cellar to examine the Dutch Landscape."
+    },
+    {
+      "time": "22:24",
+      "text": "Tomas takes a bottle from the cellar."
+    },
+    {
+      "time": "22:32",
+      "text": "Vivian uses the service stairs to go up to the study."
+    },
+    {
+      "time": "22:40",
+      "text": "Vivian kills Edmund with the statuette."
+    },
+    {
+      "time": "22:41",
+      "text": "Edmund's watch stops."
+    },
+    {
+      "time": "22:46",
+      "text": "Vivian returns downstairs by the service stairs."
+    },
+    {
+      "time": "23:05",
+      "text": "A waiter finds Edmund's body."
+    }
+  ],
+  "solution": {
+    "culprit": "vivian",
+    "motive": "Edmund discovered she sold the real Dutch Landscape and hid 40,000 from the books.",
+    "method": "She struck Edmund with the bronze statuette in his study and wiped it clean.",
+    "key_evidence": [
+      "service_door_log",
+      "statuette",
+      "ledger_page",
+      "watch"
+    ],
+    "explanation": "Vivian claimed she never left the ballroom, but her keycard opened the service stairs at 22:32 up and 22:46 down, which brackets the time Edmund's watch stopped at 22:41. The statuette smells of the lavender cream only she wears, and Edmund's torn ledger page shows she had a motive to silence him. Marcus argued with Edmund but left at 22:10 while he was still alive, and Elena and Tomas were in the cellar."
+  }
+}

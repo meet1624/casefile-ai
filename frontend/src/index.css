@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bodoni-moda";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource/courier-prime/400.css";
+@import "@fontsource/courier-prime/700.css";
+@import "@fontsource/caveat/500.css";
+@import "@fontsource/caveat/700.css";
+
+/* A dark room with one lamp on. Only the evidence is lit: exhibits are the one light thing on screen.
+   Brass marks what you can act on. Oxblood is reserved for contradictions. */
+@theme {
+  --color-soot: #06080d;
+  --color-charcoal: #0c1018;
+  --color-slate: #131824;
+  --color-slate-2: #1a2030;
+  --color-hairline: #29303f;
+  --color-bone: #ebe4d3;
+  --color-ash: #a59f93;
+  --color-brass: #d9a441;
+  --color-brass-light: #f0c46c;
+  --color-brass-dim: #85632a;
+  --color-oxblood: #c4473f;
+  --color-oxblood-deep: #7a1f2b;
+  --color-sage: #84b394;
+  --color-paper: #eadfc6;
+  --color-paper-ink: #231f18;
+  --color-manila: #c8b27c;
+  --color-ink-blue: #1b3a6b;
+
+  --font-display: "Bodoni Moda Variable", "Bodoni 72", Didot, "Times New Roman", serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-type: "Courier Prime", "Courier New", monospace;
+  --font-hand: "Caveat", "Segoe Script", cursive;
+}
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--color-soot);
+  background-image:
+    radial-gradient(70rem 36rem at 78% -12%, rgb(217 164 65 / 0.10), transparent 62%),
+    radial-gradient(120rem 60rem at 50% 120%, rgb(0 0 0 / 0.55), transparent 60%);
+  background-attachment: fixed;
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* film grain, very faint */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass-light);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection { background: rgb(217 164 65 / 0.35); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--color-hairline) transparent; }
+
+/* An exhibit: warm typewritten paper. */
+.paper {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.32), transparent 45%),
+    var(--color-paper);
+  color: var(--color-paper-ink);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 24px 36px -20px rgb(0 0 0 / 0.9),
+    0 2px 5px rgb(0 0 0 / 0.45);
+}
+
+/* Light cast through venetian blinds. */
+.blinds {
+  background-image: repeating-linear-gradient(
+    -14deg,
+    rgb(240 196 108 / 0.075) 0 34px,
+    transparent 34px 78px
+  );
+  -webkit-mask-image: radial-gradient(closest-side at 60% 45%, #000 20%, transparent 100%);
+  mask-image: radial-gradient(closest-side at 60% 45%, #000 20%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---- scene animation ---- */
+@keyframes cf-rain-fall { from { transform: translateY(-120%) } to { transform: translateY(120vh) } }
+@keyframes cf-drop-run { 0% { transform: translateY(0); opacity: 0 } 6% { opacity: .85 } 70% { opacity: .7 } 100% { transform: translateY(46vh); opacity: 0 } }
+@keyframes cf-mote-drift { 0% { transform: translate(0, 0) } 50% { transform: translate(14px, -22px) } 100% { transform: translate(-6px, 10px) } }
+.cf-rain { animation: cf-rain-fall linear infinite; will-change: transform; }
+.cf-drop { background: radial-gradient(circle at 35% 30%, rgb(255 255 255 / .75), rgb(160 190 230 / .28) 55%, transparent 70%); animation: cf-drop-run ease-in infinite; box-shadow: 0 0 4px rgb(160 190 230 / .25); }
+.cf-mote { animation: cf-mote-drift ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .cf-rain, .cf-drop, .cf-mote { animation: none !important; } .cf-rain { opacity: 0 !important; } }
+
+/* stamped ink */
+.ink-stamp { mix-blend-mode: multiply; filter: url(#cf-ink); }
+.text-glow { text-shadow: 0 0 22px rgb(240 196 108 / .35); }

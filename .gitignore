@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+*.db
+.secret_key
+node_modules/
+dist/
+.DS_Store
+*.log
+.vscode/

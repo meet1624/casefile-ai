@@ -1,0 +1,347 @@
+{
+  "id": "blackwater-express",
+  "title": "Death on the Blackwater Express",
+  "setting": "The overnight Blackwater Express, crossing the moor in the winter of 1927.",
+  "victim": "Sir Reginald Thorne, shipping magnate",
+  "briefing": "At 23:55 the conductor found Sir Reginald Thorne dead in compartment 4, a glass of brandy at his side. The doctor says poison. The train does not stop until dawn, so the killer is still aboard. Five people spoke to him tonight. Four of them are hiding something. Only one is a murderer.",
+  "locations": [
+    "dining car",
+    "compartment 4",
+    "baggage car",
+    "conductor's cabin",
+    "observation platform"
+  ],
+  "topics": [
+    "whereabouts",
+    "victim",
+    "compartment",
+    "brandy",
+    "doctor"
+  ],
+  "topic_labels": {
+    "whereabouts": "Where were you tonight?",
+    "victim": "What was Sir Reginald to you?",
+    "compartment": "Did you go near compartment 4?",
+    "brandy": "What do you know about the brandy?",
+    "doctor": "What do you make of Dr. Finch?"
+  },
+  "suspects": [
+    {
+      "id": "finch",
+      "name": "Dr. Mabel Finch",
+      "role": "Physician",
+      "personality": "Calm, warm, and impossible to rattle.",
+      "background": "Has treated Sir Reginald's heart for years and was travelling to a conference.",
+      "motive": "Sir Reginald had proof she sold watered-down medicines to his shipping crews and planned to ruin her.",
+      "secret": "She slipped aconite into his decanter during a visit to compartment 4 at 23:25.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I played whist in the dining car until half past eleven, with half the train watching.",
+          "truthful": false,
+          "refuted_by": "score_card"
+        },
+        {
+          "topic": "victim",
+          "text": "Sir Reginald was a patient, nothing more. I treated his heart for years.",
+          "truthful": true
+        },
+        {
+          "topic": "compartment",
+          "text": "I never set foot in his compartment tonight.",
+          "truthful": false,
+          "refuted_by": "door_log"
+        },
+        {
+          "topic": "brandy",
+          "text": "He took a brandy every night. Everyone knew that.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "score_card",
+          "text": "I stepped out for some air. Is that a crime?",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "I left the table for a few minutes to get some air, and no more.",
+            "truthful": false,
+            "refuted_by": "door_log"
+          }
+        },
+        {
+          "evidence_id": "door_log",
+          "text": "A routine heart check. He was perfectly well when I left.",
+          "reveals": {
+            "topic": "compartment",
+            "text": "Very well, I looked in on him at twenty-five past eleven. A routine check. He was alive and grumbling.",
+            "truthful": false,
+            "refuted_by": "aconite_vial"
+          }
+        },
+        {
+          "evidence_id": "aconite_vial",
+          "text": "Every doctor carries strong tinctures. That proves nothing."
+        },
+        {
+          "evidence_id": "decanter",
+          "text": "Brandy goes off in a warm compartment. I would not read anything into it."
+        }
+      ]
+    },
+    {
+      "id": "julian",
+      "name": "Julian Thorne",
+      "role": "Nephew and heir",
+      "personality": "Charming, restless, and always one step ahead of his debts.",
+      "background": "Lives off allowances from his uncle and gambles more than he earns.",
+      "motive": "He inherits a large share of the estate and owes money to dangerous people.",
+      "secret": "He sneaked into compartment 4 at 22:50 to take cash from his sleeping uncle.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was asleep in my own compartment from ten o'clock, thank you very much.",
+          "truthful": false,
+          "refuted_by": "door_log"
+        },
+        {
+          "topic": "victim",
+          "text": "My uncle and I never saw eye to eye, but he was family.",
+          "truthful": true
+        },
+        {
+          "topic": "compartment",
+          "text": "I never went near my uncle's compartment all night.",
+          "truthful": false,
+          "refuted_by": "glove"
+        },
+        {
+          "topic": "brandy",
+          "text": "I know nothing about brandy, only about whisky.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "door_log",
+          "text": "The conductor is a gossip. I had a headache.",
+          "reveals": {
+            "topic": "whereabouts",
+            "text": "Fine. I was awake. I went to my uncle's compartment at ten to eleven and was out again in eight minutes. He was alive and snoring.",
+            "truthful": true
+          }
+        },
+        {
+          "evidence_id": "glove",
+          "text": "That could belong to anyone with my initials.",
+          "reveals": {
+            "topic": "compartment",
+            "text": "I went in to take some cash from his coat. He was alive and snoring when I left. I did not touch the brandy.",
+            "truthful": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "beatrice",
+      "name": "Lady Beatrice Ashby",
+      "role": "Widow of a rival shipowner",
+      "personality": "Elegant, guarded, and very good at saying nothing.",
+      "background": "Her late husband lost a fortune to Sir Reginald's company.",
+      "motive": "She was being blackmailed over a letter in Sir Reginald's possession.",
+      "secret": "She wrote Sir Reginald a letter begging him to burn something he was using against her.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I sat on the observation platform from ten past ten until half past eleven, then went to bed. The cold suits me.",
+          "truthful": true
+        },
+        {
+          "topic": "victim",
+          "text": "Sir Reginald? A man I barely knew.",
+          "truthful": false,
+          "refuted_by": "ashby_letter"
+        },
+        {
+          "topic": "compartment",
+          "text": "I have never been in that compartment in my life.",
+          "truthful": true
+        },
+        {
+          "topic": "doctor",
+          "text": "Dr. Finch is a charming woman. She played cards all evening, I believe.",
+          "truthful": true
+        }
+      ],
+      "reactions": [
+        {
+          "evidence_id": "ashby_letter",
+          "text": "A private matter from years ago.",
+          "reveals": {
+            "topic": "victim",
+            "text": "He was blackmailing me over an old letter. I begged him to burn it. He refused. I wanted him gone, but I did not kill him.",
+            "truthful": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "edith",
+      "name": "Edith Crane",
+      "role": "Sir Reginald's secretary",
+      "personality": "Quiet, precise, and sharper than people expect.",
+      "background": "Has typed Sir Reginald's letters for nine years and knows his habits.",
+      "motive": "She resented his temper but stood to lose her job if he died.",
+      "secret": "She noticed more than she let on.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I was in my compartment typing Sir Reginald's letters until half past eleven. The typewriter is loud, ask the conductor.",
+          "truthful": true
+        },
+        {
+          "topic": "victim",
+          "text": "Sir Reginald was a hard man, but he was fair to me.",
+          "truthful": true
+        },
+        {
+          "topic": "compartment",
+          "text": "When I stepped into the corridor for a breather, I saw Dr. Finch go into his compartment at about twenty-five past eleven. She said it was his heart.",
+          "truthful": true
+        },
+        {
+          "topic": "brandy",
+          "text": "He had a brandy every night from the decanter in his compartment. Always the same decanter.",
+          "truthful": true
+        },
+        {
+          "topic": "doctor",
+          "text": "Dr. Finch has been very attentive to him lately. More than usual.",
+          "truthful": true
+        }
+      ],
+      "reactions": []
+    },
+    {
+      "id": "pym",
+      "name": "Harold Pym",
+      "role": "Conductor",
+      "personality": "Weary, observant, and discreet for a price.",
+      "background": "Has worked the Blackwater line for thirty years.",
+      "motive": "He has none, but he took a tip he should not have.",
+      "secret": "He unlocked compartment 4 for Julian for five pounds and wrote it down.",
+      "statements": [
+        {
+          "topic": "whereabouts",
+          "text": "I walked the train all night, between my cabin and the corridor, checking doors.",
+          "truthful": true
+        },
+        {
+          "topic": "victim",
+          "text": "Sir Reginald tipped well and complained loudly. That is all I know of him.",
+          "truthful": true
+        },
+        {
+          "topic": "compartment",
+          "text": "I unlocked it twice tonight and wrote both visits in my log. Ask to see it.",
+          "truthful": true
+        }
+      ],
+      "reactions": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "score_card",
+      "name": "Whist score card",
+      "location": "dining car",
+      "description": "Initialled after each rubber. Dr. Finch's last initials are at 23:15, and another passenger took her seat after that."
+    },
+    {
+      "id": "decanter",
+      "name": "Brandy decanter",
+      "location": "compartment 4",
+      "description": "A bitter smell comes from the dregs, which have a faint green tinge. The stopper has been wiped clean."
+    },
+    {
+      "id": "glove",
+      "name": "Leather glove",
+      "location": "compartment 4",
+      "description": "A man's left glove with the initials J.T. stitched inside the cuff. It was dropped beside the bed."
+    },
+    {
+      "id": "ashby_letter",
+      "name": "Crumpled letter",
+      "location": "compartment 4",
+      "description": "Signed B.A.: 'Reginald, I beg you, burn it. I will pay whatever you ask. Meet me on the platform at eleven and let us end this.'"
+    },
+    {
+      "id": "aconite_vial",
+      "name": "Empty glass vial",
+      "location": "baggage car",
+      "description": "Found in Dr. Finch's medical bag, labelled 'Tincture of aconite'. The cork smells of brandy."
+    },
+    {
+      "id": "door_log",
+      "name": "Conductor's door log",
+      "location": "conductor's cabin",
+      "description": "Compartment 4 was unlocked twice tonight: 22:50 to 22:58 for J. Thorne (tip of £5), and 23:25 to 23:35 for Dr. Finch ('heart check')."
+    },
+    {
+      "id": "cigarette_case",
+      "name": "Silver cigarette case",
+      "location": "observation platform",
+      "description": "Engraved B.A. It lay on the bench beside a cold pot of tea and a dozen stubs."
+    }
+  ],
+  "timeline": [
+    {
+      "time": "21:30",
+      "text": "Dr. Finch joins the whist game in the dining car."
+    },
+    {
+      "time": "22:10",
+      "text": "Lady Ashby goes out to the observation platform."
+    },
+    {
+      "time": "22:50",
+      "text": "Julian is let into compartment 4 and takes cash from his sleeping uncle."
+    },
+    {
+      "time": "22:58",
+      "text": "Julian leaves compartment 4. Sir Reginald is alive."
+    },
+    {
+      "time": "23:15",
+      "text": "Dr. Finch leaves the whist table."
+    },
+    {
+      "time": "23:25",
+      "text": "Dr. Finch enters compartment 4 on the pretext of a heart check and slips aconite into the decanter."
+    },
+    {
+      "time": "23:35",
+      "text": "Dr. Finch leaves compartment 4 and returns to the dining car."
+    },
+    {
+      "time": "23:45",
+      "text": "Sir Reginald pours himself his nightly brandy and drinks it."
+    },
+    {
+      "time": "23:55",
+      "text": "The conductor finds Sir Reginald dead."
+    }
+  ],
+  "solution": {
+    "culprit": "finch",
+    "motive": "Sir Reginald had proof she sold watered-down medicines to his shipping crews and planned to ruin her.",
+    "method": "She slipped aconite into his brandy decanter during a 'heart check' and left him to drink it himself.",
+    "key_evidence": [
+      "score_card",
+      "door_log",
+      "aconite_vial",
+      "decanter"
+    ],
+    "explanation": "Dr. Finch claimed she sat at the card table until half past eleven and never entered compartment 4. The whist card shows she left the table at 23:15, the conductor's log shows she was inside compartment 4 from 23:25 to 23:35, and an empty aconite vial was in her bag. The decanter smells bitter and was wiped clean. Julian stole cash earlier and left his uncle alive, and Lady Ashby was being blackmailed but sat on the platform in the cold."
+  }
+}
